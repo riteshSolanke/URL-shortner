@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify OTP</title>
+
+    <link rel="stylesheet" href="/css/verify-otp.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <h1>Verify OTP</h1>
+
+    <% if (error) { %>
+    <script>
+      Swal.fire("Error", "<%= error %>", "error");
+    </script>
+    <% } %> <% if (success) { %>
+    <script>
+      Swal.fire("Success", "<%= success %>", "success");
+    </script>
+    <% } %>
+
+    <form action="/auth/verify-otp" method="POST">
+      <label>Email:</label>
+      <input type="email" name="email" required />
+
+      <label>OTP:</label>
+      <input type="text" name="otp" required />
+
+      <button type="submit">Verify OTP</button>
+    </form>
+  </body>
+</html>

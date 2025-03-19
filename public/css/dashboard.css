@@ -1,0 +1,155 @@
+/* General Styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  color: #007bff;
+  margin: 20px;
+}
+
+h2 {
+  color: #0056b3;
+}
+
+/* Table Styles */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+header {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+.url-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.url-section input {
+  width: 50%;
+  padding: 10px;
+  color: black;
+}
+form button {
+  padding: 10px;
+  margin-left: 6px;
+  background-color: #ccc;
+  border: 1px solid transparent;
+}
+
+.url-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+table img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+table img:hover {
+  transform: scale(1.1);
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Error Message */
+script {
+  display: none;
+}
+
+/* No URL Message */
+p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Logout Link */
+a[href="/auth/logout"] {
+  display: block;
+
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+}
+
+a[href="/auth/logout"]:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  table {
+    width: 100%;
+  }
+}

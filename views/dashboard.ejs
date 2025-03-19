@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Welcome, <%= user.name %>!</h1>
+        <a href="/auth/logout" class="logout-btn">Logout</a>
+      </header>
+
+      <% if (error) { %>
+      <script>
+        Swal.fire("Error", "<%= error %>", "error");
+      </script>
+      <% } %>
+
+      <section class="url-section">
+        <h2>Create a Short URL</h2>
+        <form action="/url/shorten" method="post">
+          <input
+            type="url"
+            name="originalUrl"
+            placeholder="Enter URL to Shorten"
+            required
+          />
+          <button type="submit">Shorten URL</button>
+        </form>
+      </section>
+
+      <section class="url-list">
+        <h2>Your Shortened URLs</h2>
+        <% if (urls.length === 0) { %>
+        <p>No URLs found. Start by creating one!</p>
+        <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Original URL</th>
+              <th>Short URL</th>
+              <th>Clicks</th>
+              <th>QR Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% urls.forEach(url => { %>
+            <tr>
+              <td>
+                <a href="<%= url.originalUrl %>" target="_blank"
+                  ><%= url.originalUrl %></a
+                >
+              </td>
+              <td>
+                <a href="/url/<%= url.shortUrl %>" target="_blank"
+                  ><%= url.shortUrl %></a
+                >
+              </td>
+              <td><%= url.clickCount %></td>
+              <td>
+                <img
+                  src="<%= url.qrCode %>"
+                  alt="QR Code for <%= url.shortUrl %>"
+                  width="100"
+                />
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+
+        <% } %>
+      </section>
+    </div>
+  </body>
+</html>

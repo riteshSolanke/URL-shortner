@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="projectName"><h1>URL shortner</h1></div>
+    <div class="container">
+      <h1>Login to Your Account</h1>
+
+      <!-- Display Error using SweetAlert if error exists -->
+      <% if (error) { %>
+        <script>
+          Swal.fire('Error', '<%= error %>', 'error');
+        </script>
+      <% } %>
+    
+      <% if (success) { %>
+        <script>
+          Swal.fire('Success', '<%= success %>', 'success');
+        </script>
+      <% } %>
+
+      <!-- Login Form -->
+      <form action="/auth/login" method="POST">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+
+        <button type="submit">Login</button>
+      </form>
+
+      <!-- Additional Links -->
+      <div class="links">
+        <a href="/auth/forgot-password">Forgot Password?</a>
+        <span>|</span>
+        <a href="/auth/register">Don't have an account? Sign up</a>
+      </div>
+    </div>
+  </body>
+</html>
