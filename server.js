@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
   if (req.isAuthenticated()) {
     return res.redirect("/user/dashboard");
   }
-  res.render("login", { error: null });
+  res.render("login", { error: null, success: null });
 });
 
 // Error Handling Middleware
